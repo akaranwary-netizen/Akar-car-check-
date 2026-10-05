@@ -1,0 +1,27 @@
+AKAR'S CAR CHECK - DVSA MOT HISTORY SETUP
+
+1. Replace your existing server.js with the supplied server.js.
+2. Replace your existing package.json with the supplied package.json.
+3. In Render, open your Web Service -> Environment.
+4. Add these environment variable names and paste the matching values from your DVSA approval email:
+
+DVSA_CLIENT_ID
+DVSA_CLIENT_SECRET
+DVSA_API_KEY
+DVSA_SCOPE
+DVSA_TOKEN_URL
+
+5. Keep your existing DVLA_API_KEY too.
+6. Save the environment variables.
+7. In Render choose Manual Deploy -> Deploy latest commit, or restart/redeploy the service.
+
+TEST
+After deployment, open:
+https://YOUR-RENDER-ADDRESS/api/health
+
+You should see:
+{"ok":true,"dvlaConfigured":true,"dvsaConfigured":true}
+
+SECURITY
+Do not place Client Secret or API keys inside server.js, index.html, browser JavaScript, GitHub, or any public file.
+Because the credentials were visible in a screenshot, rotating/regenerating them with DVSA is recommended.
